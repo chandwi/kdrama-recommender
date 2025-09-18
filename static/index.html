@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Drama Finder</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-tv"></i>
+                K-Drama Finder
+            </h1>
+            <p class="tagline">Discover your next favorite Korean drama</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search by title, actor, or description..."
+                        class="search-input"
+                    >
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="genreFilter">Genre:</label>
+                        <select id="genreFilter" class="filter-select">
+                            <option value="">All Genres</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">All Status</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="ratingFilter">Min Rating:</label>
+                        <select id="ratingFilter" class="filter-select">
+                            <option value="0">Any Rating</option>
+                            <option value="6">6+</option>
+                            <option value="7">7+</option>
+                            <option value="8">8+</option>
+                            <option value="9">9+</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section" id="statsSection">
+                <div class="stats-cards">
+                    <div class="stats-card">
+                        <div class="stats-number" id="totalDramas">-</div>
+                        <div class="stats-label">Total Dramas</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="avgRating">-</div>
+                        <div class="stats-label">Avg Rating</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h2 id="resultsTitle">Popular K-Dramas</h2>
+                    <div class="results-count" id="resultsCount"></div>
+                </div>
+                
+                <div class="loading" id="loadingSpinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Searching...</span>
+                </div>
+                
+                <div class="drama-grid" id="dramaGrid">
+                    <!-- Drama cards will be inserted here -->
+                </div>
+                
+                <div class="load-more-section">
+                    <button id="loadMoreBtn" class="load-more-btn" style="display: none;">
+                        Load More
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Drama Detail Modal -->
+    <div class="modal" id="dramaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" id="modalCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Drama details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 K-Drama Finder. Data sourced from TMDB.</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
